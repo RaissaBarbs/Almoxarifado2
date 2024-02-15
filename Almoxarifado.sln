@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Almoxarifado_API", "Almoxarifado_API\Almoxarifado_API.csproj", "{FEBF30AF-EAA6-4C95-89E6-13EFF92B20BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Almoxarifado_Teste", "Almoxarifado_Teste\Almoxarifado_Teste.csproj", "{9EB45388-FEFB-46FA-A323-360D72E61C68}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FEBF30AF-EAA6-4C95-89E6-13EFF92B20BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEBF30AF-EAA6-4C95-89E6-13EFF92B20BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEBF30AF-EAA6-4C95-89E6-13EFF92B20BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEBF30AF-EAA6-4C95-89E6-13EFF92B20BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EB45388-FEFB-46FA-A323-360D72E61C68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EB45388-FEFB-46FA-A323-360D72E61C68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EB45388-FEFB-46FA-A323-360D72E61C68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EB45388-FEFB-46FA-A323-360D72E61C68}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4795F5C3-0274-46B1-A45F-CB47178A09AD}
+	EndGlobalSection
+EndGlobal
