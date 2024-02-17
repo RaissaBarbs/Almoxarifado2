@@ -8,8 +8,8 @@ namespace Almoxarifado_API.Models
         public string Descricao { get; set; }
         public int Estoque { get; set; }
         public int EstoqueMinimo { get; set; }
-        public string Unidade { get; set; }
         public double Preco { get; set; }
+        public int QuantidadeMinima { get; set; }
         public List<Historicos> Historico { get; set; } = new List<Historicos>();
 
         public void Atualizar(Produtos produto)
@@ -17,8 +17,8 @@ namespace Almoxarifado_API.Models
             this.Descricao = produto.Descricao;
             this.Estoque = produto.Estoque;
             this.EstoqueMinimo = produto.EstoqueMinimo;
-            this.Unidade = produto.Unidade;
             this.Preco = produto.Preco;
+            this.QuantidadeMinima = produto.QuantidadeMinima;
         }
         public void AtualizarPreco(double preco)
         {
@@ -30,14 +30,32 @@ namespace Almoxarifado_API.Models
             });
             this.Preco = preco;
         }
-        public void VerificarEstoque()
+        public void VerificarEstoqueMaiorQueMinimo()
         {
-            if (this.Estoque <= this.EstoqueMinimo)
+            if (this.Estoque < this.EstoqueMinimo)
             {
                 throw new Exception("O estoque mínimo deve ser "+this.EstoqueMinimo);
             }
            
         }
 
+        public void VerificarQuantidade(int quantidade)
+        {
+
+            if (quantidade < this.QuantidadeMinima)
+            {
+                throw new Exception("A quantidade deve ser maior "+this.QuantidadeMinima);
+            }
+        }
+
+        public void VerificarPreco()
+        {
+            if (Preco < 0)
+            {
+                throw new Exception("O preço deve ser maior que 0");
+            }
+        }
+
     }
+   
 }

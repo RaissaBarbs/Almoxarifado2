@@ -6,6 +6,7 @@ var departamentos = new List<Departamentos>
 {
     new Departamentos
     {
+        idDep = 1,
         Descricao = "RH",
         Funcionarios = new List<Funcionarios>
         {
@@ -43,6 +44,24 @@ var estoques = new List<Estoques>
         }
     }
 };
+var funcionarios = new List<Funcionarios>
+{
+
+
+    new Funcionarios
+    {
+        FuncNome = "João",
+       
+    },
+    new Funcionarios
+    {
+        FuncNome = "Marcela",
+      
+    }
+
+};
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -57,6 +76,7 @@ builder.Services.AddSingleton(categorias);
 builder.Services.AddSingleton(departamentos);
 builder.Services.AddSingleton(motivos);
 builder.Services.AddSingleton(estoques);
+builder.Services.AddSingleton(funcionarios);
 
 builder.Services.AddSingleton<CrudProdutos>();
 

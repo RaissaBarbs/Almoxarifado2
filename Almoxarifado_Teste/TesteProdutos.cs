@@ -22,7 +22,7 @@ namespace Almoxarifado_Teste
                     EstoqueMinimo = 10,
                     Estoque = 5
                 };
-                produto.VerificarEstoque();
+                produto.VerificarEstoqueMaiorQueMinimo();
                 _crud.Adicionar(produto);
             });
         }
@@ -35,7 +35,7 @@ namespace Almoxarifado_Teste
                 EstoqueMinimo = 10,
                 Estoque = 15
             };
-            produto.VerificarEstoque();
+            produto.VerificarEstoqueMaiorQueMinimo();
             _crud.Adicionar(produto);
         }
         [TestMethod]
@@ -67,6 +67,50 @@ namespace Almoxarifado_Teste
             produto.AtualizarPreco(5);
             produto.AtualizarPreco(6);
             Assert.AreEqual(resultado, produto.Historico.Count);
+        }
+        [TestMethod]
+        public void ErroQuantidadeMenorQueMinima()
+        {
+            Assert.ThrowsException<Exception>(() =>
+            {
+                int pedido = 3;
+                var produto = new Produtos
+                {
+                    Descricao = "tomate",
+                    QuantidadeMinima = 5
+                };
+                produto.VerificarQuantidade(pedido);
+                _crud.Adicionar(produto);
+            });
+        }
+        [TestMethod]
+        public void InserirProduto()
+        {
+            int pedido = 10;
+            var produto = new Produtos
+            {
+                Descricao = "tomate",
+                QuantidadeMinima = 5,
+                Preco = 10
+            };
+            produto.VerificarQuantidade(pedido);
+            produto.VerificarPreco();
+            _crud.Adicionar(produto);
+        }
+
+        [TestMethod]
+        public void ErroPrecoMenorQue0()
+        {
+            Assert.ThrowsException<Exception>(() =>
+            {
+                var produto = new Produtos
+                {
+                    Descricao = "arroz",
+                    Preco = -2
+                };
+                produto.VerificarPreco();
+                _crud.Adicionar(produto);
+            });
         }
     }
 }

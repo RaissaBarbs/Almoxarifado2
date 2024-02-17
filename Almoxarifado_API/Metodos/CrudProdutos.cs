@@ -82,7 +82,7 @@ namespace Almoxarifado_API.Metodos
         public void Adicionar(Produtos value)
         {
 
-            value.VerificarEstoque();
+            value.VerificarEstoqueMaiorQueMinimo();
             _produtos.Add(value);
 
         }

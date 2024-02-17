@@ -31,12 +31,33 @@ namespace Almoxarifado_API.Controllers
             return _crudProdutos.Buscar(id);
         }
 
-        // POST api/<CategoriasController>
-        [HttpPost]
-        public IActionResult Post([FromBody] Produtos value)
+        [HttpGet("fazerPedido/{id}/{quantidade}")]
+        public IActionResult FazerPedido(int id, int quantidade)
         {
             try
             {
+                var produto = _crudProdutos.Buscar(id);
+                produto?.VerificarQuantidade(quantidade);
+                return Ok("Pedido realizado");
+            }
+            catch (Exception ex)
+            {
+
+              return BadRequest(ex.Message);
+            }
+            
+        }
+
+        // POST api/<CategoriasController>
+        [HttpPost]
+        public IActionResult Post([FromBody] Produtos value)
+        { 
+  
+            try
+            {
+                value.VerificarEstoqueMaiorQueMinimo();
+                value.VerificarPreco();
+                
                 _crudProdutos.Adicionar(value);
                 return Ok(_crudProdutos.Listar());
 
