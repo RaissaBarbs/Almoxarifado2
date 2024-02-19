@@ -119,7 +119,7 @@ namespace Almoxarifado_Teste
             };
 
             var funcionario = departamento.BuscarFuncionario("Ana Julia");
-            Assert.AreEqual(esperado, funcionario.PegarCargo());
+            Assert.AreEqual(esperado, funcionario.PegarCargo()); //compara o esperado com o que o sistema ta retornando
         }
     }
 }

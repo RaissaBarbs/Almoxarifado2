@@ -32,11 +32,14 @@ namespace Almoxarifado_API.Models
         }
         public void VerificarEstoqueMaiorQueMinimo()
         {
-            if (this.Estoque < this.EstoqueMinimo)
+            if (this.Estoque > this.EstoqueMinimo)
             {
-                throw new Exception("O estoque mínimo deve ser "+this.EstoqueMinimo);
+                
             }
-           
+            else
+            {
+                throw new Exception("O estoque mínimo deve ser " + this.EstoqueMinimo);
+            }
         }
 
         public void VerificarQuantidade(int quantidade)
